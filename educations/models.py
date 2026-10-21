@@ -1,4 +1,5 @@
 from django.db import models
+from users.models import User
 
 
 class Course(models.Model):
@@ -54,6 +55,8 @@ class Lesson(models.Model):
         related_name="lessons",
         null=True,
     )
+
+    owner = models.ForeignKey(User, verbose_name='Владелец урока', on_delete=models.SET_NULL, blank=True, null=True)
 
     class Meta:
         verbose_name = "Урок"
