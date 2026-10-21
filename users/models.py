@@ -1,3 +1,4 @@
+from django.contrib.auth.models import AbstractUser
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.contrib.auth.base_user import AbstractBaseUser
 from django.db import models
@@ -5,7 +6,7 @@ from django.db import models
 from educations.models import Course, Lesson
 
 
-class User(AbstractBaseUser):
+class User(AbstractUser):
     username = None
     email = models.EmailField(
         max_length=100,

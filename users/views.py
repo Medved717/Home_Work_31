@@ -18,12 +18,9 @@ class UserAPICreateView(CreateAPIView):
         user.save()
 
 
-
-
 class PaymentListAPIView(ListAPIView):
     queryset = Payment.objects.all()
     serializer_class = PaymentSerializer
     filter_backends = (DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter)
     filterset_fields = ('payment_method', 'paid_course', 'paid_lesson')
     ordering_fields = ['pay_date']
-
